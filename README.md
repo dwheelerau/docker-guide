@@ -54,8 +54,6 @@ This is the quick start way of getting megadetector up and running using the doc
 
 ![Figure 4.1: Pull the megadetector image from the docker hub(images/figure4.1.png)    
 
-4. Run the app xxxxxx
-
 Hopefully that is all that is required. Note I have included more advanced instructions below in case you want to build the app from source (this is not required if the above has worked for you).  
 
 # Process camera trap images through megadetector (with GPU support)  
@@ -66,9 +64,49 @@ Hopefully that is all that is required. Note I have included more advanced instr
 mkdir -p ~/projects/PROJECTNAME
 ```
 
-1. Copy your image files to the Ubuntu disk are using file explorer (see figure below)
+2. Copy your image files to the Ubuntu disk are using file explorer (see the figures below): in the linux disk your directory path would be `/home/USERNAME/projects/PROJECTNAME`  
 
-## Accessing files
+![File finder view 1](images/figurex.png)  
+
+![File finer view 2](images/figurex2.png)
+
+You can copy directories with sub-directories if you like, the command we will use to run megadetector will look through all folders in the target directory.  
+
+3. Check that your images copied across by typing the following in the Ubuntu app terminal
+```
+# replace PREJECTDIRECTORY with the name you used
+cd ~/projects/PROJECTDIRECTORY
+# this should print out files
+ls
+```
+
+4. Run megadetector using the command line options to test the installation (will ask you for your password)  
+
+```
+xxxxx
+```
+
+5. Run megadetector so that:  
+a) creates output images with boundary boxes  
+b) only draws boxes when detection probability is greater than 20%
+c) outputs images to a foler called xxx
+d) outputs a json file describing detections to xxx  
+
+```
+
+```
+
+Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location.
+
+6. Run in batch mode
+This mode won't create images with boundary boxes, it simply creates a JSON outfile. The advantage of this mode is that it saves disk space because output images are not being created. Note that you can still create these images latter using information contained in the JSON output file. You can also you use this file to filter out empty images etc (just get in touch if you have any questions about this).  
+
+```
+xxxx
+```
+
+## Accessing the output files  
+The commands above use your current working directory as a root directory, so any output files that are generated should be viewable in file explorer if you navigate to your linux disk space. You can copy these across. If you want a more user friendly version of JSON see the tools directory which has a script for converting JSON to CSV format that will open in excel.  
 
 
 # Advanced: Building the megadetector image from the repo   

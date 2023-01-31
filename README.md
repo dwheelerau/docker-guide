@@ -8,14 +8,13 @@ If you use this code please acknowledge the original authors from the Sydney Uni
 
 **If you have used this work for a publication, you must acknowledge SIH, e.g: "The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney."**
 
-
-# Docker image source  
+# Megadetector repo source   
 https://github.com/Sydney-Informatics-Hub/megadetector-contained
 
 # Instructions  
 
-## Instal WSL using the windows store    
-1. Install Windows Subsystem for Linux (WSL) using the windows app store  
+## Install WSL using the windows store    
+1. Install Windows Subsystem for Linux (WSLv2) using the windows app store  
 2. Type 'store' in the windows search box and select 'Microsoft store'
 3. In the search bar at the top of the store search for 'WSL'
 
@@ -46,7 +45,8 @@ sudo apt update && sudo apt upgrade -y
 ![Figrue 4: The Docker Desktop app](images/figure4.png)  
 
 # QuickStart: Megadetetor from the docker hub
-This is the quick start way of getting megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub. An alternative option is to build it from the repo (This is shown below).  
+This is the quick start way of getting megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub. An alternative option is to build it from the repo (This is further down the page if you are intested). To install from the hub you will need a docker hub account.  
+
 ## Create a free account on docker hub
 1. Navigate to `hub.docker.com` and create a free account  
 2. After creating your account an option will be available to connect to docker desktop (otherwise just login directly using the docker desktop app)  
@@ -59,12 +59,15 @@ This is the quick start way of getting megadetector up and running using the doc
 Hopefully that is all that is required. Note I have included more advanced instructions below in case you want to build the app from source (this is not required if the above has worked for you).  
 
 # Process camera trap images through megadetector (with GPU support)  
-1. Open the Ubuntu App and create a place to store your images (**replace PROJECTNAME with your own meaningful name of your own (dont use spaces)**)
+1. Open the Ubuntu App and create a place to store your images (**replace PROJECTNAME with your own meaningful name of your own (please dont use spaces, use an underscore instead, every linux user will thank you)**)
+
 ```
 # replace PROJECTNAME with your own name (Don't use spaces!!)
-mkdir ~/projects/PROJECTNAME
-1. Copy your image files to the Ubuntu disk are using file explorer (see figure below)
+mkdir -p ~/projects/PROJECTNAME
 ```
+
+1. Copy your image files to the Ubuntu disk are using file explorer (see figure below)
+
 ## Accessing files
 
 
@@ -106,8 +109,11 @@ sudo docker build . -t nbutter/megadetector:ubuntu1604
 
 ## Check the image using the docker desktop app  
 1. If the docker desktop app is closed open it now using the start menu  
-2. If step 4 above was successful then you should see the new megadetector image agailable  
+2. If step 4 above was successful then you should see the new megadetector image agailable in the desktop app (click images) 
 
 ![Figure 8: The megadetector docker image in the desktop app](images/figure8.png)
 
+3. To run the app, click hte little play icon in the "actions" section.
+
+![Figure 9: Megadetector running](images/figure9.png)
 

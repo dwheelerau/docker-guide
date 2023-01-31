@@ -66,9 +66,9 @@ mkdir -p ~/projects/PROJECTNAME
 
 2. Copy your image files to the Ubuntu disk are using file explorer (see the figures below): in the linux disk your directory path would be `/home/USERNAME/projects/PROJECTNAME`  
 
-![File finder view 1](images/figurex.png)  
+![File finder view 1](images/Figurex.png)  
 
-![File finer view 2](images/figurex2.png)
+![File finer view 2](images/Figurex2.png)
 
 You can copy directories with sub-directories if you like, the command we will use to run megadetector will look through all folders in the target directory.  
 

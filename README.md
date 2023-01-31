@@ -136,9 +136,9 @@ This command will:
 a) process the images and sub-directories in the folder `TP`  
 b) create a JSON file of outputs called `TP.json`  
 c) only include detections above 20% probability  
-
+d) save the output file every 1000 images (in case of crash etc)
 ```
-sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector_batch.py /build/blobs/md_v5b.0.0.pt ./TP TP.json --output_relative_filenames --recursive --threshold 0.2"
+sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector_batch.py /build/blobs/md_v5b.0.0.pt ./TP TP.json --output_relative_filenames --recursive --threshold 0.2 --checkpoint_frequency 1000"
 ```
 
 ## Accessing the output files  

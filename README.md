@@ -6,11 +6,11 @@ Installing and running megadetector (V5) in a docker invironment on windows.
 # Acknowledgements  
 If you use this code please acknowledge the original authors from the Sydney University Informatics Hub, as per their note below from the original repo.
 ```
-xxxxx
+If you have used this work for a publication, you must acknowledge SIH, e.g: "The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney."
 ```
 
 # Docker image source  
-www. XXXXXXx 
+https://github.com/Sydney-Informatics-Hub/megadetector-contained
 
 # Instructions  
 

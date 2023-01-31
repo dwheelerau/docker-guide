@@ -52,7 +52,7 @@ This is the quick start way of getting megadetector up and running using the doc
 2. After creating your account an option will be available to connect to docker desktop (otherwise just login directly using the docker desktop app)  
 3. In the search menu type `nbutter/megadetector` and click `pull`
 
-![Figure 4.1: Pull the megadetector image from the docker hub(images/figure4.1.png)    
+![Figure 4.1: Pull the megadetector image from the docker hub](images/figure4.1.png)    
 
 Hopefully that is all that is required. Note I have included more advanced instructions below in case you want to build the app from source (this is not required if the above has worked for you).  
 

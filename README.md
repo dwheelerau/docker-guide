@@ -83,26 +83,62 @@ ls
 4. Run megadetector using the command line options to test the installation (will ask you for your password)  
 
 ```
-xxxxx
+sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py -h"
+
+#usage: run_detector.py [-h] (--image_file IMAGE_FILE | --image_dir IMAGE_DIR) [--recursive] [--output_dir OUTPUT_DIR]
+#                       [--image_size IMAGE_SIZE] [--threshold THRESHOLD] [--crop] [--box_thickness BOX_THICKNESS]
+#                       [--box_expansion BOX_EXPANSION]
+#                       detector_file
+#
+#Module to run an animal detection model on images
+#
+#positional arguments:
+#  detector_file         Path to TensorFlow (.pb) or PyTorch (.pt) detector model file
+#
+#optional arguments:
+#  -h, --help            show this help message and exit
+#  --image_file IMAGE_FILE
+#                        Single file to process, mutually exclusive with --image_dir
+#  --image_dir IMAGE_DIR
+#                        Directory to search for images, with optional recursion by adding --recursive
+#  --recursive           Recurse into directories, only meaningful if using --image_dir
+#  --output_dir OUTPUT_DIR
+#                        Directory for output images (defaults to same as input)
+#  --image_size IMAGE_SIZE
+#                        Force image resizing to a (square) integer size (not recommended to change this)
+#  --threshold THRESHOLD
+#                        Confidence threshold between 0 and 1.0; only render boxes above this confidence (defaults to
+#                        0.2)
+#  --crop                If set, produces separate output images for each crop, rather than adding bounding boxes to
+#                        the original image
+#  --box_thickness BOX_THICKNESS
+#                        Line width (in pixels) for box rendering (defaults to 4)
+#  --box_expansion BOX_EXPANSION
+#                        Number of pixels to expand boxes by (defaults to 0)
 ```
 
-5. Run megadetector so that:  
-a) creates output images with boundary boxes  
-b) only draws boxes when detection probability is greater than 20%
-c) outputs images to a foler called xxx
-d) outputs a json file describing detections to xxx  
+5. Run megadetector so that (see above output for all command line options):  
+a) processes all images (and sub-folders via `--recursive`) in the directory called `TP`  
+b) creates output directory called `testing` containing images with boundary boxes around animal detections    
+c) only draws boxes when detection probability is greater than 20%  
 
 ```
-
+sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py /build/blobs/md_v5b.0.0.pt --image_dir ./TP --output_dir ./testing --threshold 0.2 --recursive"
 ```
 
 Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location.
+![File explorer window showing the new testing folder containing the output images](images/figurex3.png)  
 
-6. Run in batch mode
+6. Run in batch mode (use this mode if you want to do downstream processing like removing empty images)  
 This mode won't create images with boundary boxes, it simply creates a JSON outfile. The advantage of this mode is that it saves disk space because output images are not being created. Note that you can still create these images latter using information contained in the JSON output file. You can also you use this file to filter out empty images etc (just get in touch if you have any questions about this).  
 
+This command will:
+a) process the images and sub-directories in the folder `TP`  
+b) create a JSON file of outputs called `TP.json`  
+c) only include detections above 20% probability  
+
 ```
-xxxx
+sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector_batch.py /build/blobs/md_v5b.0.0.pt ./TP TP.json --output_relative_filenames --recursive --threshold 0.2"
 ```
 
 ## Accessing the output files  

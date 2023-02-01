@@ -18,8 +18,13 @@ The citation for megadetector itself is:
 }
 ```
 
-# Megadetector repo source   
+# Megadetector repo source
+The main MS megadetector page (contains lots of useful info about scripts that can be run via this cotnainer)  
+https://github.com/microsoft/CameraTraps/blob/main/megadetector.md
+
+The Sydney Uni container version page  
 https://github.com/Sydney-Informatics-Hub/megadetector-contained
+
 
 # Instructions  
 

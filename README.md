@@ -50,7 +50,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 **Important info about copy and pasting these commands into a terminal**  
-a) Copy and paste will work, just right click right at the top of the terminal screen (on the white boarder), select EDIT->copy/paste  
+a) Copy and paste will work, just right click at the top of the terminal screen (on the white boarder), select EDIT->copy/paste  
 b) Copy and paste is great, but it can be dangerious because sometimes the command will run right after you push 'paste'. For this reason I always type a hash (ie #) in the terminal window before pasting, in this way even if the commadn runs nothing will happen because everything after a hash is ignored by linux  
 c) If you do the above and the command executed with the hash # at the start, just push the up arrow on the keyboard and modified the command (remove the hash this time) so that it executes properly  
 

@@ -105,6 +105,8 @@ ls
 
 NOTE: Everything below with `#` is just info that will be printed to your linux terminal window, please don't type anything with the hash as they are just comments. Once again if you copy and paste the code from the window below, be sure to type # in your terminal window, just in case it executes after the paste, use the up arrow to bring back the command (delete the hash), and then execute it manually by pushing ENTER on the keyboard.    
 
+NOTE: The use of backticks around the "pwd" command, on my keyboard this key is on the top left on the same key as tilde ~.  
+
 ```
 sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py -h"
 

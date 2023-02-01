@@ -44,6 +44,12 @@ https://github.com/Sydney-Informatics-Hub/megadetector-contained
 
 2. Launch the Ubuntu app using the start menu, you will be asked for a username and password (This is only used for the ubuntu app itself to login to this enviroment)  
 3. Apply updates by typing the following:  
+
+**Important info about copy and pasting these commands into a terminal**  
+a) Copy and paste will work, just right click right at the top of the terminal screen (on the white boarder), select EDIT->copy/paste.
+b) Copy and paste is great, but it can be dangerious because sometimes the command will run right after you push 'paste'. For this reason I always type a hash (ie #) in the terminal window before pasting, in this way even if the commadn runs nothing will happen because everything after a hash is ignored by linux.
+c) If you do the above and the command executed with the hash # at the start, just push the up arrow on the keyboard and modified the command (remove the hash this time) so that it executes properly  
+
 ```
 sudo apt update && sudo apt upgrade -y
 ```
@@ -97,7 +103,7 @@ ls
 
 4. Run megadetector using the command line options to test the installation (will ask you for your password). Note the use of the `-h` flag here, this will print out the help, that will show all the possible options for running megadetector.    
 
-NOTE: Everything below with `#` is just info that will be printed to your linux terminal window, please don't type anything with the hash as they are just comments.  
+NOTE: Everything below with `#` is just info that will be printed to your linux terminal window, please don't type anything with the hash as they are just comments. Once again if you copy and paste the code from the window below, be sure to type # in your terminal window, just in case it executes after the paste, use the up arrow to bring back the command (delete the hash), and then execute it manually by pushing ENTER on the keyboard.    
 
 ```
 sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py -h"
@@ -134,7 +140,7 @@ sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604
 #                        Number of pixels to expand boxes by (defaults to 0)
 ```
 
-5. Nowe can use the above information to run megadetector so that it will (see above output for all command line options):  
+5. Now can use the above information to run megadetector so that it will (see above output for all command line options):  
 a) processes all images (and sub-folders via `--recursive`) in the directory called `TP`  
 b) creates output directory called `testing` containing images with boundary boxes around animal detections    
 c) only draws boxes when detection probability is greater than 20%  

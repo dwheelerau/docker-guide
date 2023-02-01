@@ -59,7 +59,7 @@ sudo apt update && sudo apt upgrade -y
 
 ![Figrue 4: The Docker Desktop app](images/figure4.png)  
 
-# QuickStart: Megadetetor from the docker hub
+# QuickStart: Megadetector from the docker hub
 This is the quick start way of getting megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub. An alternative option is to build it from the repo (This is further down the page if you are intested). To install from the hub you will need a docker hub account.  
 
 ## Create a free account on docker hub

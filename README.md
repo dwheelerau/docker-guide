@@ -8,6 +8,11 @@ If you use this code please acknowledge the original authors from the Sydney Uni
 
 **If you have used this work for a publication, you must acknowledge SIH, e.g: "The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney."**
 
+The citation for megadetector itself is:  
+```
+
+```
+
 # Megadetector repo source   
 https://github.com/Sydney-Informatics-Hub/megadetector-contained
 

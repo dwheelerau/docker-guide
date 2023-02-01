@@ -10,7 +10,12 @@ If you use this code please acknowledge the original authors from the Sydney Uni
 
 The citation for megadetector itself is:  
 ```
-
+@article{beery2019efficient,
+  title={Efficient Pipeline for Camera Trap Image Review},
+  author={Beery, Sara and Morris, Dan and Yang, Siyu},
+  journal={arXiv preprint arXiv:1907.06772},
+  year={2019}
+}
 ```
 
 # Megadetector repo source   

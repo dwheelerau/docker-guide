@@ -197,4 +197,6 @@ sudo docker build . -t nbutter/megadetector:ubuntu1604
 3. To run the app as described in the fast start section
 
 # Tools  
+ToDo  
 - convert JSON to CSV format - xxxx.py  
+- add boundary boxes to image files based on the JSON file created by the megadetector batch script - xxx.py

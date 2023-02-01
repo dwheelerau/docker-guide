@@ -42,7 +42,7 @@ https://github.com/Sydney-Informatics-Hub/megadetector-contained
 
 ![Figure 2: Install the Ubuntu App for WSL from the windows store.](images/figure2.png)  
 
-2. Launch the Ubuntu app using the start menu, you will be asked for a username and password
+2. Launch the Ubuntu app using the start menu, you will be asked for a username and password (This is only used for the ubuntu app itself to login to this enviroment)  
 3. Apply updates by typing the following:  
 ```
 sudo apt update && sudo apt upgrade -y

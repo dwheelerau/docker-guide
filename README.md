@@ -156,7 +156,7 @@ You can modify the command below based on the above to match your filenames/fold
 sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py /build/blobs/md_v5b.0.0.pt --image_dir ./TP --output_dir ./testing --threshold 0.2 --recursive"
 ```
 
-Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location.
+Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location. Note in the image below a new folder has been created called `testing` based on the `--output_dir` flag listed in the above command. This will contain our image files with detections.  
 
 ![File explorer window showing the new testing folder containing the output images](images/figurex3.png)
 

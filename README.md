@@ -157,7 +157,8 @@ sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604
 ```
 
 Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location.
-![File explorer window showing the new testing folder containing the output images](images/figurex3.png)  
+
+![File explorer window showing the new testing folder containing the output images](images/figurex3.png)
 
 6. Or you can run in batch mode if you want to do downstream processing like removing empty images based on an ouput summary file that shows filenames and detection probabilities etc.  
 

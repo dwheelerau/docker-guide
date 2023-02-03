@@ -1,32 +1,10 @@
-# 202302lgonsalves  
+# A guide to user docker for deploying and using images  
 
 # Introduction  
-Installing and running megadetector (V5) in a docker invironment on windows.  
-
-# Acknowledgements  
-If you use this code please acknowledge the original authors from the Sydney University Informatics Hub, as per their note below from the original repo.
-
-**If you have used this work for a publication, you must acknowledge SIH, e.g: "The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney."**
-
-The citation for megadetector itself is:  
-```
-@article{beery2019efficient,
-  title={Efficient Pipeline for Camera Trap Image Review},
-  author={Beery, Sara and Morris, Dan and Yang, Siyu},
-  journal={arXiv preprint arXiv:1907.06772},
-  year={2019}
-}
-```
-
-# Megadetector repo source
-The main MS megadetector page (contains lots of useful info about scripts that can be run via this cotnainer)  
-https://github.com/microsoft/CameraTraps/blob/main/megadetector.md
-
-The Sydney Uni container version page  
-https://github.com/Sydney-Informatics-Hub/megadetector-contained
-
+Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and contains.  
 
 # Instructions  
+The following instructions are written for windows users who do not have Windows Subsystem for Linux (v2) instaled (WSL). If you are using linux you just need to install docker using apt.  
 
 ## Install WSL using the windows store    
 1. Install Windows Subsystem for Linux (WSLv2) using the windows app store  
@@ -66,7 +44,7 @@ c) If you do the above and the command executed with the hash # at the start, ju
 
 ![Figrue 4: The Docker Desktop app](images/figure4.png)  
 
-# QuickStart: Megadetector from the docker hub
+# QuickStart example using an image hosted on the docker hub
 This is the quick start way of getting megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub. An alternative option is to build it from the repo (This is further down the page if you are intested). To install from the hub you will need a docker hub account.  
 
 ## Create a free account on docker hub
@@ -177,7 +155,7 @@ sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604
 The commands above use your current working directory as a root directory, so any output files that are generated should be viewable in file explorer if you navigate to your linux disk space. You can copy these across. If you want a more user friendly version of JSON see the tools directory which has a script for converting JSON to CSV format that will open in excel.  
 
 
-# Advanced: Building the megadetector image from the repo   
+# Advanced example building a megadetector image from a repo   
 The following instructions will build the docker image from the original repo. This is a little more advanced and will take around 30 minutes to install and download ~10GB from the internet.  
 
 ## Install the Sydney Uni Megadetector v5 using Ubuntu  
@@ -221,7 +199,41 @@ sudo docker build . -t nbutter/megadetector:ubuntu1604
 
 3. To run the app as described in the fast start section
 
-# Tools  
-ToDo  
-- convert JSON to CSV format - xxxx.py  
-- add boundary boxes to image files based on the JSON file created by the megadetector batch script - xxx.py
+# Common commands and how to manage your docker images and containers  
+This of your docker images as computers, and your containers as running instances of the computer. 
+
+To build a container from an image use the `docker run` commmand.  
+
+```
+# -it creates a terminal
+# -v mounts a volume (in this case $(pwd)/projects
+docker run -it -v `pwd`:/project user/name:tag /bin/bash -c "your command goes here"
+```
+
+Once this container is created you can interact with it via its name. This is much quicker than using the `run` command each time. Also, using `run` will result in a build up of containers that take up disk space, so `exec` is definitely the way to go! 
+
+To find out the containers that are currently available and there status use, note the HASH and NAME can be used to interact with the container:  
+
+```
+docker ps -a
+```
+
+The name can be used to start and then execute commands within that container environment.  
+```
+docker start NAME"
+docker exec -it CONTAINER_NAME /bin/bash -c "YOUR COMMAND"
+# an example
+docker exec -t keen_franklin /bin/bash -c "echo hello"
+```
+
+You can even modify files within the container if you installed vim as part of the build process through the Dockerfile.  
+
+```
+docker exec -t keen_franklin /bin/bash -c "vim somefile.txt"
+```
+
+Once you are done with a container it can be deleted using its name or hash.  
+```
+docker stop CONTAINER_NAME
+docker rm CONTAINER_NAME
+```

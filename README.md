@@ -1,5 +1,22 @@
 # A guide to user docker for deploying and using images  
 
+- [Introduction](#introduction)
+- [Instructions](#instructions)
+  * [Install WSL using the windows store](#install-wsl-using-the-windows-store)
+  * [Install Ubuntu linux using WSL](#install-ubuntu-linux-using-wsl)
+  * [Install docker desktop for windows](#install-docker-desktop-for-windows)
+- [QuickStart example using an image hosted on the docker hub](#quickstart-example-using-an-image-hosted-on-the-docker-hub)
+  * [Create a free account on docker hub](#create-a-free-account-on-docker-hub)
+- [Process camera trap images through megadetector (with GPU support)](#process-camera-trap-images-through-megadetector--with-gpu-support-)
+  * [Accessing the output files](#accessing-the-output-files)
+- [Advanced example building a megadetector image from a repo](#advanced-example-building-a-megadetector-image-from-a-repo)
+  * [Install the Sydney Uni Megadetector v5 using Ubuntu](#install-the-sydney-uni-megadetector-v5-using-ubuntu)
+  * [Check the image using the docker desktop app](#check-the-image-using-the-docker-desktop-app)
+- [Common commands and how to manage your docker images and containers](#common-commands-and-how-to-manage-your-docker-images-and-containers)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # Introduction  
 Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and contains.  
 
@@ -220,7 +237,7 @@ docker ps -a
 
 The name can be used to start and then execute commands within that container environment.  
 ```
-docker start NAME"
+docker start NAME
 docker exec -it CONTAINER_NAME /bin/bash -c "YOUR COMMAND"
 # an example
 docker exec -t keen_franklin /bin/bash -c "echo hello"

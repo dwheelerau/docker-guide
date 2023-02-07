@@ -1,4 +1,4 @@
-# A guide to user docker for deploying and using images  
+# A guide to using docker to deploying and use AI models  
 
 - [Introduction](#introduction)
 - [Instructions](#instructions)

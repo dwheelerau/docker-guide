@@ -1,4 +1,4 @@
-# A guide to using docker to share and use AI models  
+# A guide for using docker to share and use AI models  
 
 - [Introduction](#introduction)
 - [Instructions](#instructions)

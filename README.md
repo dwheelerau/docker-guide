@@ -227,6 +227,13 @@ To build a container from an image use the `docker run` commmand.
 docker run -it -v `pwd`:/project user/name:tag /bin/bash -c "your command goes here"
 ```
 
+Once the command is run the container will shutdown. To keep it open so you can continue to interact with it us the `-d` detacted mode. This is handy because don't have to keep creating new containers which uses up resources!  
+
+```
+# mounts your current working dir in /project in the container in detacted mode
+docker run -it -d -v `pwd`:/project user/name:tag
+```
+
 Once this container is created you can interact with it via its name. This is much quicker than using the `run` command each time. Also, using `run` will result in a build up of containers that take up disk space, so `exec` is definitely the way to go! 
 
 To find out the containers that are currently available and there status use, note the HASH and NAME can be used to interact with the container:  
@@ -240,13 +247,17 @@ The name can be used to start and then execute commands within that container en
 docker start NAME
 docker exec -it CONTAINER_NAME /bin/bash -c "YOUR COMMAND"
 # an example
-docker exec -t keen_franklin /bin/bash -c "echo hello"
+docker exec -it keen_franklin /bin/bash -c "echo hello"
 ```
 
 You can even modify files within the container if you installed vim as part of the build process through the Dockerfile.  
 
 ```
-docker exec -t keen_franklin /bin/bash -c "vim somefile.txt"
+docker exec -it keen_franklin /bin/bash -c "vim somefile.txt"
+```
+Or if you just want to log in an interact as if this was a real session.  
+```
+docker exec -it keen_franklin /bin/bash
 ```
 
 Once you are done with a container it can be deleted using its name or hash.  

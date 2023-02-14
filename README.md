@@ -2,8 +2,6 @@
 
 - [Introduction](#introduction)
 - [Instructions](#instructions)
-  * [Install WSL using the windows store](#install-wsl-using-the-windows-store)
-  * [Install Ubuntu linux using WSL](#install-ubuntu-linux-using-wsl)
   * [Install docker desktop for windows](#install-docker-desktop-for-windows)
 - [QuickStart example using an image hosted on the docker hub](#quickstart-example-using-an-image-hosted-on-the-docker-hub)
   * [Create a free account on docker hub](#create-a-free-account-on-docker-hub)
@@ -21,48 +19,17 @@
 Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and contains.  
 
 # Instructions  
-The following instructions are written for windows users who do not have Windows Subsystem for Linux (v2) instaled (WSL). If you are using linux you just need to install docker using apt.  
-
-## Install WSL using the windows store    
-1. Install Windows Subsystem for Linux (WSLv2) using the windows app store  
-2. Type 'store' in the windows search box and select 'Microsoft store'
-3. In the search bar at the top of the store search for 'WSL'
-
-![Figure 1: Windows Subsystems for Linux app in the windows store](images/figure1.png)
-
-- Install the app and then **reboot your computer**
-
-## Install Ubuntu linux using WSL  
-1. Once again in the windows store search for 'Ubuntu 20.04 LTS' and install the app (at the time of writing the current version is 20.04.5)  
-
-![Figure 2: Install the Ubuntu App for WSL from the windows store.](images/figure2.png)  
-
-2. Launch the Ubuntu app terminal using the start menu, you will be asked for a username and password (This is only used for the ubuntu app itself to login to this enviroment)  
-3. Apply updates by typing the following into the Ubuntu terminal window:  
-
-```
-sudo apt update && sudo apt upgrade -y
-```
-
-**Important info about copy and pasting these commands into a terminal**  
-a) Copy and paste will work, just right click at the top of the terminal screen (on the white boarder), select EDIT->copy/paste  
-b) Copy and paste is great, but it can be dangerious because sometimes the command will run right after you push 'paste'. For this reason I always type a hash (ie #) in the terminal window before pasting, in this way even if the commadn runs nothing will happen because everything after a hash is ignored by linux  
-c) If you do the above and the command executed with the hash # at the start, just push the up arrow on the keyboard and modified the command (remove the hash this time) so that it executes properly  
-
-
-![Figure 3: Apply updates](images/figure3.png)  
-
-4. Shutdown the app by closing the window (or typing `exit`)  
+The following instructions are written for windows users, if you are using Linux you just need to install docker using apt.  
 
 ## Install docker desktop for windows  
 1. Navigate to `www.docker.com/products/docker-desktop/` and click the Download Docker Desktop for windows button  
-2. Install the application selecting `WSL` as the backend  
+2. Install the application selecting `WSL` as the backend (should be the default options)   
 3. Check that everything is working by opening the `Docker Desktop` app from the start menu  
 
-![Figrue 4: The Docker Desktop app](images/figure4.png)  
+![Figrue 1: The Docker Desktop app](images/figure4.png)  
 
 # QuickStart example using an image hosted on the docker hub
-This is the quick start way of getting megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub. An alternative option is to build it from the repo (This is further down the page if you are intested). To install from the hub you will need a docker hub account.  
+This is the quick start way of getting the camera trap AI software megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub.  
 
 ## Create a free account on docker hub
 1. Navigate to `hub.docker.com` and create a free account  
@@ -71,17 +38,17 @@ This is the quick start way of getting megadetector up and running using the doc
 
 ![Figure 4.1: Pull the megadetector image from the docker hub](images/figure4.1.png)    
 
-Hopefully that is all that is required. Note I have included more advanced instructions below in case you want to build the app from source (this is not required if the above has worked for you).  
+Hopefully that is all that is required.  
 
 # Process camera trap images through megadetector (with GPU support)  
-1. Open the Ubuntu App and create a place to store your images (**replace PROJECTNAME with your own meaningful name of your own (please dont use spaces, use an underscore instead, every linux user will thank you)**)
+1. Open the Ubuntu App and create a place to store your images (**replace PROJECTNAME with your own meaningful name of your own (please dont use spaces, use an underscore instead, every Linux user will thank you)**)
 
 ```
 # replace PROJECTNAME with your own name (Don't use spaces!!)
 mkdir -p ~/projects/PROJECTNAME
 ```
 
-2. Copy your image files to the Ubuntu disk are using file explorer (see the figures below): in the linux disk your directory path would be `/home/USERNAME/projects/PROJECTNAME`  
+2. Copy your image files to the Ubuntu disk are using file explorer (see the figures below): in the Linux disk your directory path would be `/home/USERNAME/projects/PROJECTNAME`  
 
 ![File finder view 1](images/Figurex.png)  
 
@@ -99,7 +66,7 @@ ls
 
 4. Run megadetector using the command line options to test the installation (will ask you for your password). Note the use of the `-h` flag here, this will print out the help, that will show all the possible options for running megadetector.    
 
-NOTE: Everything below with `#` is just info that will be printed to your linux terminal window, please don't type anything with the hash as they are just comments. Once again if you copy and paste the code from the window below, be sure to type # in your terminal window, just in case it executes after the paste, use the up arrow to bring back the command (delete the hash), and then execute it manually by pushing ENTER on the keyboard.    
+NOTE: Everything below with `#` is just info that will be printed to your Linux terminal window, please don't type anything with the hash as they are just comments. Once again if you copy and paste the code from the window below, be sure to type # in your terminal window, just in case it executes after the paste, use the up arrow to bring back the command (delete the hash), and then execute it manually by pushing ENTER on the keyboard.    
 
 NOTE: The use of backticks around the "pwd" command, on my keyboard this key is on the top left on the same key as tilde ~.  
 
@@ -169,7 +136,7 @@ sudo docker run --gpus all -it -v `pwd`:/project nbutter/megadetector:ubuntu1604
 ```
 
 ## Accessing the output files  
-The commands above use your current working directory as a root directory, so any output files that are generated should be viewable in file explorer if you navigate to your linux disk space. You can copy these across. If you want a more user friendly version of JSON see the tools directory which has a script for converting JSON to CSV format that will open in excel.  
+The commands above use your current working directory as a root directory, so any output files that are generated should be viewable in file explorer if you navigate to your Linux disk space. You can copy these across. If you want a more user friendly version of JSON see the tools directory which has a script for converting JSON to CSV format that will open in excel.  
 
 
 # Advanced example building a megadetector image from a repo   

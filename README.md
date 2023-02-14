@@ -27,8 +27,8 @@ The following instructions are written for windows users, if you are using Linux
 This is the quick start way of getting the camera trap AI software megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub.  
 
 ## Process camera trap images through megadetector (with GPU support)  
-Use the file explore navigate to the directory where your images are stored. In the file path bar type 
-`cmd` to open a command prompt in this current directory.  
+Use the file explore navigate to the directory where your images are stored. In the file path bar (circled below)
+type `cmd` to open a command prompt in this current directory.  
 
 ![Type "cmd" in the file explorer window to open a terminal in the currnet directory](images/folder.PNG)
 
@@ -82,12 +82,12 @@ The following message should print out
 #                        Number of pixels to expand boxes by (defaults to 0)
 ```
 
-Now can use the above information to run megadetector so that it will (see above output for all command line options):  
-a) processes all images (and sub-folders via `--recursive`) in the directory called `TP`  
+Now we can use the above information to run megadetector so that it will (see above output for all command line options):  
+a) processes all images (and sub-folders via `--recursive`) in the directory called `camera1`  
 b) creates output directory called `testing` containing images with boundary boxes around animal detections    
 c) only draws boxes when detection probability is greater than 20%  
 
-You need to modify the `--image_dir` to target the directory with your iamges, in this case I am processing
+You need to modify the `--image_dir` to target the directory with your images, in this case I am processing
 images in the `camera1` directory.  
 
 **Note:** If you don't have a GPU (graphics card), then don't include the `--gpus all` part.    

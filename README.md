@@ -98,7 +98,7 @@ Note: pushing the up arrow in the keyboard will bring back the last command type
 
 Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location. Note in the image below a new folder has been created called `testing` based on the `--output_dir` flag listed in the above command. This will contain our image files with detections.  
 
-![The new `testing` folder containing the output images](images/folder2.png)
+![The new "testing folder containing the output images](images/folder2.PNG)
 
 An alternative is to run megadetector in batch mode if you want to do downstream processing like removing empty images based on an ouput summary file that shows filenames and detection probabilities etc.  
 

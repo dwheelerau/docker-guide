@@ -4,13 +4,8 @@
 - [Instructions](#instructions)
   * [Install docker desktop for windows](#install-docker-desktop-for-windows)
 - [QuickStart example using an image hosted on the docker hub](#quickstart-example-using-an-image-hosted-on-the-docker-hub)
-  * [Create a free account on docker hub](#create-a-free-account-on-docker-hub)
 - [Process camera trap images through megadetector (with GPU support)](#process-camera-trap-images-through-megadetector--with-gpu-support-)
-  * [Accessing the output files](#accessing-the-output-files)
-- [Advanced example building a megadetector image from a repo](#advanced-example-building-a-megadetector-image-from-a-repo)
   * [Install the Sydney Uni Megadetector v5 using Ubuntu](#install-the-sydney-uni-megadetector-v5-using-ubuntu)
-  * [Check the image using the docker desktop app](#check-the-image-using-the-docker-desktop-app)
-- [Common commands and how to manage your docker images and containers](#common-commands-and-how-to-manage-your-docker-images-and-containers)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -31,16 +26,7 @@ The following instructions are written for windows users, if you are using Linux
 # QuickStart example using an image hosted on the docker hub
 This is the quick start way of getting the camera trap AI software megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub.  
 
-## Create a free account on docker hub
-1. Navigate to `hub.docker.com` and create a free account  
-2. After creating your account an option will be available to connect to docker desktop (otherwise just login directly using the docker desktop app)  
-3. In the search menu type `nbutter/megadetector` and click `pull`
-
-![Figure 4.1: Pull the megadetector image from the docker hub](images/figure4.1.png)    
-
-Hopefully that is all that is required.  
-
-# Process camera trap images through megadetector (with GPU support)  
+## Process camera trap images through megadetector (with GPU support)  
 Use the file explore navigate to the directory where your images are stored. In the file path bar type 
 `cmd` to open a command prompt in this current directory.  
 
@@ -48,13 +34,20 @@ Use the file explore navigate to the directory where your images are stored. In 
 
 ![The command prompt should open in the directroy containing your images](images/terminal.png) 
 
+Next we pull the megadetector image from docker, copy and paste or type the following at the command prompt.  
+If you copy the command you can paste it by right clicking on the top border of the command prompt terminal window. 
+
+```
+docker pull nbutter/megadetector:ubuntu1604
+```
+
 The next command will mount your current directory in the docker container and print out the help message 
-just to confirm that everything is working as expected. If you copy the command you can paste it by right clicking
-on the top border of the command prompt terminal window.  
+just to confirm that everything is working as expected.  
 
 ```
 docker run --gpus all -it -v %cd%:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py -h"
 ```
+
 The following message should print out
 ```
 #usage: run_detector.py [-h] (--image_file IMAGE_FILE | --image_dir IMAGE_DIR) [--recursive] [--output_dir OUTPUT_DIR]

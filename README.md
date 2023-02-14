@@ -7,9 +7,6 @@
 - [Process camera trap images through megadetector (with GPU support)](#process-camera-trap-images-through-megadetector--with-gpu-support-)
   * [Install the Sydney Uni Megadetector v5 using Ubuntu](#install-the-sydney-uni-megadetector-v5-using-ubuntu)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 # Introduction  
 Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and contains.  
 
@@ -93,12 +90,15 @@ images in the `camera1` directory.
 **Note:** If you don't have a GPU (graphics card), then don't include the `--gpus all` part.    
 
 ```
-docker run --gpus all -it -v %cd%:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py /build/blobs/md_v5b.0.0.pt --image_dir ./camera1 -aoutput_dir ./testing --threshold 0.2 --recursive"
+docker run --gpus all -it -v %cd%:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector.py /build/blobs/md_v5b.0.0.pt --image_dir ./camera1 --output_dir ./testing --threshold 0.2 --recursive"
 ```
+Note: pushing the up arrow in the keyboard will bring back the last command typed. 
+
+![megadetctor running on windows!](images/terminal2.png)  
 
 Hopefully you can see that by changing the above command you can alter what images are processed, the detection threshold, and the output location. Note in the image below a new folder has been created called `testing` based on the `--output_dir` flag listed in the above command. This will contain our image files with detections.  
 
-![File explorer window showing the new testing folder containing the output images](images/figurex3.png)
+![The new `testing` folder containing the output images](images/folder2.png)
 
 An alternative is to run megadetector in batch mode if you want to do downstream processing like removing empty images based on an ouput summary file that shows filenames and detection probabilities etc.  
 

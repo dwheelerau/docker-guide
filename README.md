@@ -8,13 +8,13 @@
   * [Install the Sydney Uni Megadetector v5 using Ubuntu](#install-the-sydney-uni-megadetector-v5-using-ubuntu)
 
 # Introduction  
-Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and contains.  
+Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and containers.  
 
 # Instructions  
 The following instructions are written for windows users, if you are using Linux you just need to install docker using apt.  
 
 ## Install docker desktop for windows  
-1. Navigate to `www.docker.com/products/docker-desktop/` and click the Download Docker Desktop for windows button  
+1. Navigate to `www.docker.com/products/docker-desktop` and click the Download Docker Desktop for windows button  
 2. Install the application selecting `WSL` as the backend (should be the default options)   
 3. Check that everything is working by opening the `Docker Desktop` app from the start menu  
 

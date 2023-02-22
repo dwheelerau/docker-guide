@@ -7,6 +7,7 @@
 - [QuickStart example using an image hosted on the docker hub](#quickstart-example-using-an-image-hosted-on-the-docker-hub)
 - [Process camera trap images through megadetector (with GPU support)](#process-camera-trap-images-through-megadetector--with-gpu-support-)
   * [Install the Sydney Uni Megadetector v5 using Ubuntu](#install-the-sydney-uni-megadetector-v5-using-ubuntu)
+- [Troubleshooting](#Troubleshooting)
 
 # Introduction  
 Docker allows you to share software environments in a system agnostic way. The following guide outlines how to build docker images, and then run them in containers. It also includes some key commands to manage your docker images and containers.  
@@ -14,22 +15,22 @@ Docker allows you to share software environments in a system agnostic way. The f
 # Instructions  
 The following instructions are written for windows users, if you are using Linux you just need to install docker using apt.  
 
-## Install windows sub-system for linux  
-1. Install Windows Subsystem for Linux (WSLv2) using the windows app store
-2. Type 'store' in the windows search box and select 'Microsoft store'
-3. In the search bar at the top of the store search for 'WSL'
+## Install windows sub-system for linux using the MS app store 
+1. Type 'store' in the windows search box and select 'Microsoft store'
+2. In the search bar at the top of the store search for 'WSL'
 
 ![WSL from the windows app store](images/wsl.png)
-**Now reboot your computer**
 
-4. Turn on virtulisation and enable WSL by going to your computer settings menu and searching for "Turn Winodws features on or off"
+3. Install the app and then **reboot your computer**
+
+4. Turn on virtualisation and enable WSL by going to your computer settings menu and searching for "Turn Windows Features on or off"
 
 5. Scroll down the list of options and tick "Virtual Machine Platform" and "Windows Subsystem for Linux" (see below)
 
 ![Tick these boxes](images/settings.png)
 
-6. You can confirm virtulisation is enabled by opening the task manager (ctrl-alt-delete) and looking at the performance tab; virtualization should be
-listed as "enabled" (see below)
+6. You can confirm virtualisation is enabled by opening the task manager (ctrl-alt-delete) and looking at the performance tab (circled below); virtualization should be
+listed as "enabled" (highlighted below)
 
 ![image](images/vm.png)
 
@@ -132,3 +133,7 @@ c) save the output file every 1000 images (in case of crash etc)
 ```
 docker run --gpus all -it -v %cd%:/project nbutter/megadetector:ubuntu1604 /bin/bash -c "cd /project && python /build/cameratraps/detection/run_detector_batch.py /build/blobs/md_v5b.0.0.pt ./camera1 camera1.json --output_relative_filenames --recursive --threshold 0.2 --checkpoint_frequency 1000"
 ```
+# Troubleshooting
+- [General docker desktop installation instructions](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows) 
+- [Admin rights issues for docker desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows) (see step 5 for Admin privaleges workaround)
+- [Virtualisation steps] (https://docs.docker.com/desktop/troubleshoot/topics/#virtualization)  

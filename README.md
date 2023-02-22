@@ -2,11 +2,12 @@
 
 - [Introduction](#introduction)
 - [Instructions](#instructions)
-  * [Install windows sub-system for linux (WSL)](#Install-windows-sub-system-for-linux)
+  * [Install windows sub-system for linux using the MS app store](#install-windows-sub-system-for-linux-using-the-MS-app-store)
   * [Install docker desktop for windows](#install-docker-desktop-for-windows)
-- [QuickStart example using an image hosted on the docker hub](#quickstart-example-using-an-image-hosted-on-the-docker-hub)
-- [Process camera trap images through megadetector (with GPU support)](#process-camera-trap-images-through-megadetector--with-gpu-support-)
-  * [Install the Sydney Uni Megadetector v5 using Ubuntu](#install-the-sydney-uni-megadetector-v5-using-ubuntu)
+- [Useful docker images for camera trap processing](#Useful-docker-images-for-camera-trap-processing)
+  * marsupia.ai - classification of ~70 native and feral Australian animals
+  * megadetector - three classifications (human, animal, car)
+- [Example of using a megadetector image hosted on the docker hub](#example-of-using-a-megadetector-image-hosted-on-the-docker-hub)
 - [Troubleshooting](#Troubleshooting)
 
 # Introduction  
@@ -41,10 +42,28 @@ listed as "enabled" (highlighted below)
 
 ![Figrue 1: The Docker Desktop app](images/figure4.png)  
 
-# QuickStart example using an image hosted on the docker hub
+Hopefully that is it. Check that the docker desktop app starts (Via the start menu) and also in a windows console make sure that the following output occurs when you type `wsl -v`. See below for some useful links to camera trap processing images as well as a guide to running megadetector via a docker image.  
+
+```
+wsl -v
+#WSL version: 1.0.3.0
+#Kernel version: 5.15.79.1
+#WSLg version: 1.0.47
+#MSRDC version: 1.2.3575
+#Direct3D version: 1.606.4
+#DXCore version: 10.0.25131.1002-220531-1700.rs-onecore-base2-hyp
+#Windows version: 10.0.19044.2604
+```
+
+# Useful docker images for camera trap processing
+
+- [Marsupial.ai container](https://github.com/dwheelerau/marsupial-contained) with ~70 classifications of Australian native and feral animals  
+- [megadetector container](https://github.com/orgs/Sydney-Informatics-Hub/repositories) with three clasifications: animal, car, human. An example of running this pipeline is shown below.    
+
+
+# Example of using a megadetector image hosted on the docker hub
 This is the quick start way of getting the camera trap AI software megadetector up and running using the docker hub version. This requires setting up a free account and then downloading the docker image that has been build via the team at Sydney Universities Inforatics Hub.  
 
-## Process camera trap images through megadetector (with GPU support)  
 Use the file explore navigate to the directory where your images are stored. In the file path bar (circled below)
 type `cmd` to open a command prompt in this current directory.  
 
@@ -135,5 +154,5 @@ docker run --gpus all -it -v %cd%:/project nbutter/megadetector:ubuntu1604 /bin/
 ```
 # Troubleshooting
 - [General docker desktop installation instructions](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows) 
-- [Admin rights issues for docker desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows) (see step 5 for Admin privaleges workaround)
-- [Virtualisation steps] (https://docs.docker.com/desktop/troubleshoot/topics/#virtualization)  
+- [Admin rights issues for docker desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows) (see step 5 regarding "admin account")  
+- [Virtualisation steps](https://docs.docker.com/desktop/troubleshoot/topics/#virtualization)  

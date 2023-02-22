@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Instructions](#instructions)
+  * [Install windows sub-system for linux (WSL)](#Install-windows-sub-system-for-linux)
   * [Install docker desktop for windows](#install-docker-desktop-for-windows)
 - [QuickStart example using an image hosted on the docker hub](#quickstart-example-using-an-image-hosted-on-the-docker-hub)
 - [Process camera trap images through megadetector (with GPU support)](#process-camera-trap-images-through-megadetector--with-gpu-support-)
@@ -12,6 +13,25 @@ Docker allows you to share software environments in a system agnostic way. The f
 
 # Instructions  
 The following instructions are written for windows users, if you are using Linux you just need to install docker using apt.  
+
+## Install windows sub-system for linux  
+1. Install Windows Subsystem for Linux (WSLv2) using the windows app store
+2. Type 'store' in the windows search box and select 'Microsoft store'
+3. In the search bar at the top of the store search for 'WSL'
+
+![WSL from the windows app store](images/wsl.png)
+**Now reboot your computer**
+
+4. Turn on virtulisation and enable WSL by going to your computer settings menu and searching for "Turn Winodws features on or off"
+
+5. Scroll down the list of options and tick "Virtual Machine Platform" and "Windows Subsystem for Linux" (see below)
+
+![Tick these boxes](images/settings.png)
+
+6. You can confirm virtulisation is enabled by opening the task manager (ctrl-alt-delete) and looking at the performance tab; virtualization should be
+listed as "enabled" (see below)
+
+![image](images/vm.png)
 
 ## Install docker desktop for windows  
 1. Navigate to `www.docker.com/products/docker-desktop` and click the Download Docker Desktop for windows button  
